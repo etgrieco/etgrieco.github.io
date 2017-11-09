@@ -3031,3 +3031,13 @@
 				}
 
 	}
+	
+	
+	/* Ammendments */
+	.portrait {
+		max-width: 200px;
+	}
+	
+	.icons-grid a {
+		color: inherit;
+	}
