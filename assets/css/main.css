@@ -2806,7 +2806,7 @@
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
-			
+
 			/* Main */
 
 				.main .image.primary {
@@ -3046,13 +3046,25 @@
 				}
 
 	}
-	
-	
+
+
 	/* Ammendments */
 	.portrait {
 		max-width: 200px;
 	}
-	
+
 	.icons-grid a {
 		color: inherit;
+	}
+
+	.alt-label {
+		margin-left: 1em;
+	}
+
+	.skills i {
+		font-size: 50px;
+	}
+
+	ul.skills li {
+		padding: 0 .5em 0 0
 	}
