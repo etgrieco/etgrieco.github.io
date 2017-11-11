@@ -3072,3 +3072,9 @@
 	.image:before {
 		background: none;
 	}
+
+	ul.icons.chess {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
