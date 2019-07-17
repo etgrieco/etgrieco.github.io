@@ -1,5 +1,6 @@
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400italic,700,800");
+@import url("devicon.min.css");
 
 /*
 	Highlights by HTML5 UP
@@ -3065,10 +3066,6 @@
 		font-size: 50px;
 	}
 
-	ul.project-skills li {
-		padding: 0 .5em 0 0
-	}
-
 	.image:before {
 		background: none;
 	}
@@ -3081,4 +3078,41 @@
 
 	.hidden {
 		display: none;
+	}
+
+	.icons.project-skills ul {
+		margin: 0 auto;
+	}
+
+	.icons.project-skills ul li {
+		padding: 1em;
+	}
+
+	.project-skills i {
+		font-size: 75px;
+	}
+
+	.project-skills h3 {
+		font-size: 1em;
+	}
+
+	@media screen and (min-width: 980px) {
+		.container {
+			width: 50em;
+		}
+	}
+
+	@media screen and (min-width: 1680px) {
+		.container {
+			width: 55em;
+		}
+	}
+
+	/* in all views, 'peeks' at content below the fold */
+	#header {
+		height: 60vh;
+	}
+
+	html {
+		scroll-behavior: smooth;
 	}
