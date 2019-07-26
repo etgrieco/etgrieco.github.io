@@ -1313,7 +1313,7 @@
 	html {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-image: url("images/overlay.png"), url("images/bg.jpg");
 		background-position: top left,					center center;
 		background-repeat: repeat,						none;
 		background-size: auto,						cover;
@@ -3062,8 +3062,10 @@
 		margin-left: 1em;
 	}
 
-	.project-skills i {
-		font-size: 50px;
+	.project-skills i,
+	.project-skills img {
+		font-size: 75px;
+		height: 75px;
 	}
 
 	.image:before {
