@@ -5,6 +5,8 @@ const eleventyNavigation = {
 };
 
 const numberOfLatestPostsToShow = 3;
+
+const layout =  "layouts/base.njk"
 ---
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
