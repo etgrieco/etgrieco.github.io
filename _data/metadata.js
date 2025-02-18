@@ -1,5 +1,5 @@
 export default {
-	title: "Elloott Grieco",
+	title: "Elliott Grieco",
 	url: "https://websiteaboutmy.website",
 	language: "en",
 	description: "A porflolio and blog about Elliott Grieco",
