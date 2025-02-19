@@ -9,25 +9,37 @@
     <title>Elliott Grieco</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" href="favicon.png">
   </head>
   <body>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+      }
+    </style>
     <!-- Header -->
-      <section id="header">
-        <header class="major">
-          <h1>Elliott Grieco</h1>
-          <p>Web Developer</p>
-        </header>
-      </section>
-
+    <section id="header">
+      <header class="major">
+        <h1>Elliott Grieco</h1>
+        <p>Web Developer</p>
+        <a href="./blog">Blog</a>
+      </header> 
+    </section>
     <!-- Profile -->
       <section id="profile" class="main special">
         <div class="container">
           <div class="content">
             <header class="major">
-              <img class="portrait" src="assets/img/portrait.jpeg" alt="profile-portrait" />
+              <img class="portrait" src="../assets/img/portrait.jpeg" alt="profile-portrait" />
               <h2>About Me</h2>
             </header>
             <p>
@@ -52,64 +64,64 @@
           <ul>
             <li>
               <i title="React" class="devicon-react-original-wordmark colored"></i>
-              <h3 class="visually-hidden">React</h3>
+              <h3 class="sr-only">React</h3>
             </li>
             <li>
               <i title="VueJS" class="devicon-vuejs-plain-wordmark colored"></i>
-              <h3 class="visually-hidden">VueJS</h3>
+              <h3 class="sr-only">VueJS</h3>
             </li>
           </ul>
           <h3>Backend</h3>
           <ul>
             <li>
               <i title="Ruby on Rails" class="devicon-rails-plain-wordmark colored"></i>
-              <span class="visually-hidden">Ruby on Rails</span>
+              <span class="sr-only">Ruby on Rails</span>
             </li>
             <li>
               <i class="devicon-graphql-plain-wordmark colored"></i>
-              <span class="visually-hidden">GraphQL</span>
+              <span class="sr-only">GraphQL</span>
             </li>
             <li>
               <i title="PostgreSQL" class="devicon-postgresql-plain-wordmark colored"></i>
-              <span class="visually-hidden">PostgreSQL</span>
+              <span class="sr-only">PostgreSQL</span>
             </li>
           </ul>
           <h3>DevOps</h3>
           <ul>
             <li>
               <i title="Git" class="devicon-git-plain-wordmark colored"></i>
-              <span class="visually-hidden">Git</span>
+              <span class="sr-only">Git</span>
             </li>
             <li>
-              <img src="assets/img/circleci.svg" alt="CircleCi" class="devicon-circleci">
-              <span class="visually-hidden">CircleCI</span>
+              <img src="../assets/img/circleci.svg" alt="CircleCi" class="devicon-circleci">
+              <span class="sr-only">CircleCI</span>
             </li>
             <li>
               <i title="AWS" class="devicon-amazonwebservices-plain-wordmark colored"></i>
-              <span class="visually-hidden">AWS</span>
+              <span class="sr-only">AWS</span>
             </li>
             <li>
               <i title="Docker" class="devicon-docker-plain-wordmark colored"></i>
-              <span class="visually-hidden">Docker</span>
+              <span class="sr-only">Docker</span>
             </li>
           </ul>
           <h3>Code</h3>
           <ul>
             <li>
               <i class="devicon-javascript-plain colored"></i>
-              <h3 class="visually-hidden">JavaScript</h3>
+              <h3 class="sr-only">JavaScript</h3>
             </li>
             <li>
               <i class="devicon-typescript-plain colored"></i>
-              <h3 class="visually-hidden">TypeScript</h3>
+              <h3 class="sr-only">TypeScript</h3>
             </li>
             <li>
               <i class="devicon-kotlin-plain-wordmark colored" aria-hidden=""></i>
-              <h3 class="visually-hidden">Kotlin</h3>
+              <h3 class="sr-only">Kotlin</h3>
             </li>
             <li>
               <i title="Ruby" class="devicon-ruby-plain-wordmark colored" aria-hidden></i>
-              <h3 class="visually-hidden">Ruby</h3>
+              <h3 class="sr-only">Ruby</h3>
             </li>
           </ul>
         </ul>
@@ -153,7 +165,7 @@
       <!-- EasyFeeds -->
       <section id="easyfeeds" class="main special">
         <div class="container">
-          <span class="image fit primary"><img src="assets/img/easyfeeds-demo.gif" alt="EasyFeeds demo" /></span>
+          <span class="image fit primary"><img src="../assets/img/easyfeeds-demo.gif" alt="EasyFeeds demo" /></span>
           <div class="content">
             <header class="major">
               <h2>EasyFeeds</h2>
@@ -179,19 +191,19 @@
           <ul class="icons project-skills">
             <li>
               <i title="Ruby on Rails" class="devicon-rails-plain-wordmark colored" aria-hidden></i>
-              <span class="visually-hidden">Ruby on Rails</span>
+              <span class="sr-only">Ruby on Rails</span>
             </li>
             <li>
               <i title="React" class="devicon-react-plain-wordmark colored" aria-hidden></i>
-              <span class="visually-hidden">React</span>
+              <span class="sr-only">React</span>
             </li>
             <li>
               <i title="PostgreSQL" class="devicon-postgresql-plain-wordmark colored"></i>
-              <span class="visually-hidden">PostgreSQL</span>
+              <span class="sr-only">PostgreSQL</span>
             </li>
             <li>
               <i title="Sass" class="devicon-sass-original colored"></i>
-              <span class="visually-hidden">Sass</span>
+              <span class="sr-only">Sass</span>
             </li>
           </ul>
           <a href="#projects" class="scrolly">Back to Projects <i class="fa fa-level-up" aria-hidden="true"></i>
@@ -202,7 +214,7 @@
       <!-- MinigolfJS -->
       <section id="minigolfjs" class="main special">
         <div class="container">
-          <span class="image fit primary"><img src="assets/img/minigolfjs.gif" alt="MonsterGolf JS Demo" /></span>
+          <span class="image fit primary"><img src="../assets/img/minigolfjs.gif" alt="MonsterGolf JS Demo" /></span>
           <div class="content">
             <header class="major">
               <h2>MonsterGolf js</h2>
@@ -219,11 +231,11 @@
           <ul class="icons project-skills">
             <li>
               <i title="Javascript" class="devicon-javascript-plain colored" aria-hidden></i>
-              <span class="visually-hidden">Javascript</span>
+              <span class="sr-only">Javascript</span>
             </li>
             <li>
               <i class="devicon-html5-plain-wordmark colored"></i>
-              <span class="visually-hidden">HTML 5</span>
+              <span class="sr-only">HTML 5</span>
             </li>
           </ul>
           <a href="#projects" class="scrolly">Back to Projects <i class="fa fa-level-up" aria-hidden="true"></i>
@@ -234,7 +246,7 @@
       <!-- Chess -->
       <section id="chess" class="main special">
         <div class="container">
-          <span class="image fit primary"><img src="assets/img/chessdemo.gif" alt="Ruby Chess Demo" /></span>
+          <span class="image fit primary"><img src="../assets/img/chessdemo.gif" alt="Ruby Chess Demo" /></span>
           <div class="content">
             <header class="major">
               <h2>Ruby Chess</h2>
@@ -251,7 +263,7 @@
           <ul class="icons project-skills">
             <li>
               <i title="Ruby" class="devicon-ruby-plain-wordmark colored" aria-hidden></i>
-              <span class="visually-hidden">Ruby</span>
+              <span class="sr-only">Ruby</span>
             </li>
           </ul>
           <a href="#projects" class="scrolly">Back to Projects <i class="fa fa-level-up" aria-hidden="true"></i>

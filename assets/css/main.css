@@ -2210,9 +2210,10 @@
 			width: 100%;
 		}
 
-			.image.fit img {
-				width: 100%;
-			}
+		.image.fit img {
+			width: 100%;
+			height: max-content;
+		}
 
 /* List */
 
@@ -3050,6 +3051,7 @@
 
 	/* Ammendments */
 	.portrait {
+		max-height: fit-content;
 		max-width: 200px;
 	}
 
@@ -3065,6 +3067,7 @@
 	.project-skills img {
 		font-size: 75px;
 		height: 75px;
+		max-width: fit-content;
 	}
 
 	.image:before {
