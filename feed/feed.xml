@@ -15,7 +15,31 @@
     <link href="https://example.com/blog/recurse-w1d2/" />
     <updated>2025-02-18T00:00:00Z</updated>
     <id>https://example.com/blog/recurse-w1d2/</id>
-    <content type="html">&lt;h1 id=&quot;here-is-a-first-post&quot;&gt;Here is a first post!&lt;/h1&gt;
+    <content type="html">&lt;h1 id=&quot;recurse-center-w1d2&quot;&gt;Recurse center: W1D2&lt;/h1&gt;
+&lt;p&gt;Here are some things we did today during my first on-site day at the Recurse hub!&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Learn by commute from UWS down to the Recurse Hub in downtown Brooklyn&lt;/li&gt;
+&lt;li&gt;Got a tour of the facilities&lt;/li&gt;
+&lt;li&gt;Socialized and met other folks in the batch over 🥯 ☕️&lt;/li&gt;
+&lt;li&gt;Did a code pairing workshop -- wrote a Conway&#39;s game of life implementation as a pair via React/NextJS with &lt;a href=&quot;https://github.com/freeman-jiang&quot;&gt;freeman-jiang&lt;/a&gt; (&lt;a href=&quot;https://github.com/etgrieco/recurse-cgol&quot;&gt;source code&lt;/a&gt; and &lt;a href=&quot;https://conway.freemanjiang.com/&quot;&gt;deployed web app&lt;/a&gt;)
+&lt;ul&gt;
+&lt;li&gt;Was &lt;em&gt;incredibly&lt;/em&gt; intrigued by a novel implementation using &lt;a href=&quot;https://typst.app/&quot;&gt;typest&lt;/a&gt; with PDF outputs as &#39;steps&#39; in the game of life&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Built this blog with this basic static site generation tool &lt;a href=&quot;https://github.com/11ty/eleventy/&quot;&gt;11ty&lt;/a&gt; -- thanks &lt;a href=&quot;https://palomakop.tv/&quot;&gt;Paloma&lt;/a&gt; for pointing me in the right direction, there!
+&lt;ul&gt;
+&lt;li&gt;Also learned some basics of leveraging GH actions for some build/deploy steps (commit -&amp;gt; update blog will keep this sustainable!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Started some course browsing for getting started to code tomorrow. Considering:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://frontendmasters.com/courses/algorithms/&quot;&gt;The last algorithms course you&#39;ll need&lt;/a&gt;, &lt;a href=&quot;https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/&quot;&gt;introduction to algorithms&lt;/a&gt;, and &lt;a href=&quot;https://ocw.mit.edu/courses/6-837-computer-graphics-fall-2012/&quot;&gt;computer graphics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;thinking through if there&#39;s a way to start on a prototype game soon enough as a jumping off point to learn and implement these kinds of thigns&lt;/li&gt;
+&lt;li&gt;if not &#39;the game&#39;, then at least some web thingd demonstrating some &#39;what I learned&#39; in a fun, interactive way!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Anyway, this day flew by and I had fun putting out at least a bit of code through the pairing experience! ✌️&lt;/p&gt;
 </content>
   </entry>
 </feed>
