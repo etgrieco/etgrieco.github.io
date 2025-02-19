@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/blog/recurse-w1d2/</loc>
+		<loc>https://websiteaboutmy.website/blog/recurse-w1d2/</loc>
 		<lastmod>2025-02-18</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/blog-archive/</loc>
+		<loc>https://websiteaboutmy.website/blog-archive/</loc>
 		<lastmod>2025-02-19</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/blog/</loc>
+		<loc>https://websiteaboutmy.website/blog/</loc>
 		<lastmod>2025-02-19</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/</loc>
+		<loc>https://websiteaboutmy.website/</loc>
 		<lastmod>2025-02-19</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/tags/</loc>
+		<loc>https://websiteaboutmy.website/tags/</loc>
 		<lastmod>2025-02-19</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://websiteaboutmy.website/eleventy-base-blog/feed/feed.xml</loc>
+		<loc>https://websiteaboutmy.website/feed/feed.xml</loc>
 		<lastmod>2025-02-19</lastmod>
 	</url>
 </urlset>
