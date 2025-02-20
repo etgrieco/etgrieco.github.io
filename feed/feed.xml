@@ -5,11 +5,72 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2025-02-18T00:00:00Z</updated>
+  <updated>2025-02-19T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W1D3</title>
+    <link href="https://example.com/blog/recurse-w1d3/" />
+    <updated>2025-02-19T00:00:00Z</updated>
+    <id>https://example.com/blog/recurse-w1d3/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-center-w1d3&quot;&gt;Recurse center: W1D3&lt;/h1&gt;
+&lt;p&gt;Some things I did and worked on at the Hub:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Commuted downtown by bike (UWS -&amp;gt; Downtown Brooklyn)&lt;/li&gt;
+&lt;li&gt;Went a couple lessons into &lt;a href=&quot;https://frontendmasters.com/courses/algorithms/&quot;&gt;The last algorithms course you&#39;ll need&lt;/a&gt;, practiced some binary search&lt;/li&gt;
+&lt;li&gt;Realized I needed some extra practice on groking binary search, decided to try some animating&lt;/li&gt;
+&lt;li&gt;Went with p5.js, since it&#39;s a good starting point for the skills I have
+&lt;ul&gt;
+&lt;li&gt;Realized that the &lt;a href=&quot;https://editor.p5js.org/&quot;&gt;p5.js&lt;/a&gt; editor is cool, but lacks type-checking that I am used to at this point&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/@types/p5&quot;&gt;the types package&lt;/a&gt; exists, and next steps was to get it working in a nice hot-reloading environment&lt;/li&gt;
+&lt;li&gt;Success! Here&#39;s &lt;a href=&quot;https://github.com/etgrieco/recurse-binary-search-p5&quot;&gt;my project&lt;/a&gt; setting up the animation in p5
+&lt;ul&gt;
+&lt;li&gt;Maybe turn it into a template repository? 🤔&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ended the day with listening to some &#39;non-programming presentations&#39; at the Recurse center, where I heard people present about biking across New Zealand, &lt;a href=&quot;https://youtu.be/ECoWZtFO-pU?si=P_KvVAKIDMrppXLs&amp;amp;t=55&quot;&gt;eating lightbulbs&lt;/a&gt;, role-play STEM education, and how to &lt;a href=&quot;https://www.youtube.com/watch?v=fvM8ow6zNw4&quot;&gt;fairly cut a cake&lt;/a&gt; -- or any kind of divisible resource -- fairly.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;working-on-the-p5-js-animation&quot;&gt;Working on the P5.js animation&lt;/h2&gt;
+&lt;p&gt;Animation and graphical work is pretty new to me.&lt;/p&gt;
+&lt;p&gt;Here&#39;s what I got done for the animation so far:&lt;/p&gt;
+&lt;p id=&quot;binary-search-progress-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+    W1D3 progress on a binary search illustration
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;binary-search-progress-video-desc&quot;&gt;
+    &lt;source src=&quot;https://example.com/blog-assets/recurse-w1d3/end-of-w1d3-binary-search-progress.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+([commit](https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9))
+&lt;p&gt;As I was going through:&lt;/p&gt;
+&lt;p&gt;I realized that it was superior to structure my code in a (very light)&#39;state-machine&#39; pattern&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Before&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/1Ibfd9BzIP-728.avif 728w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/1Ibfd9BzIP-728.webp 728w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://example.com/blog/recurse-w1d3/1Ibfd9BzIP-728.png&quot; alt=&quot;Using a series of boolean flags to manage state through progress in an animation&quot; width=&quot;728&quot; height=&quot;228&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;After&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/ESnxlDuoCP-596.avif 596w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/ESnxlDuoCP-596.webp 596w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://example.com/blog/recurse-w1d3/ESnxlDuoCP-596.png&quot; alt=&quot;Using string literals as markers of discrete states to gate progress through animation phases&quot; width=&quot;596&quot; height=&quot;248&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;And while I &lt;em&gt;could&lt;/em&gt; do some work to tightly couple these state enums to the data pieces that are relevant just to that &#39;scene&#39;, for now I just used comments to organize it: (&lt;a href=&quot;https://github.com/etgrieco/recurse-binary-search-p5/blob/3829817bfb805ed59d01263369c2770fb564c3d9/src/main.ts#L35-L58&quot;&gt;see lines&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/KHe1dOr0c--910.avif 910w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://example.com/blog/recurse-w1d3/KHe1dOr0c--910.webp 910w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://example.com/blog/recurse-w1d3/KHe1dOr0c--910.png&quot; alt=&quot;Example of organizing state using some basic comments&quot; width=&quot;910&quot; height=&quot;890&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Finally, the usefulness of this state technique definitely came to life when I could easy &#39;jump scenes&#39; in order to debug and tweak certain parts of my animation. This combined very well with the TypeScript + hot-reloading setup:&lt;/p&gt;
+&lt;p id=&quot;hot-reload-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+TypeScript + hot-reloading setup so that I can quickly iterate on visual tweaks to the animation
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;hot-reload-video-desc&quot;&gt;
+    &lt;source src=&quot;https://example.com/blog-assets/recurse-w1d3/example-hot-reload-and-tweak-in-animation-scene.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+&lt;p&gt;And that&#39;s definitely something I always value -- put in a little bit of effort for the most useful kind of fast-feedback possible:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast code feedback via TypeScript; fail at compilation, not runtime!&lt;/li&gt;
+&lt;li&gt;Fast visual feedback via hot-reloading&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some hopes for tomorrow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improve (finish?) the animation to show how binary search works -- &lt;a href=&quot;https://www.cs.usfca.edu/~galles/visualization/Search.html&quot;&gt;something like this page&lt;/a&gt;, but with my own twist&lt;/li&gt;
+&lt;li&gt;Consider if its worth to publish a basic vite + p5.js setup, since I came up with my own &#39;flavor&#39; of getting the beginning working (this &lt;a href=&quot;https://dev.to/tendonnman/how-to-use-p5js-with-typescript-and-webpack-57ae&quot;&gt;blogpost&lt;/a&gt; for webpack got me started, with some adjustments)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W1D2</title>
     <link href="https://example.com/blog/recurse-w1d2/" />

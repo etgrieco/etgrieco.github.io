@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Recurse: W1D2</title>
+		<title>Recurse: W1D3</title>
 		<meta name="description" content="A porflolio and blog about Elliott Grieco">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Elliott Grieco">
 		
@@ -473,39 +473,69 @@ header {
 		<main id="skip">
 			<heading-anchors>
 				
-<h1 id="recurse-w1d2">Recurse: W1D2</h1>
+<h1 id="recurse-w1d3">Recurse: W1D3</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-02-18">18 February 2025</time></li>
+	<li><time datetime="2025-02-19">19 February 2025</time></li>
+	<li><a href="/tags/recurse/" class="post-tag">recurse</a></li>
 </ul>
 
-<h1 id="recurse-center-w1d2">Recurse center: W1D2</h1>
-<p>Here are some things we did today during my first on-site day at the Recurse hub!</p>
+<h1 id="recurse-center-w1d3">Recurse center: W1D3</h1>
+<p>Some things I did and worked on at the Hub:</p>
 <ol>
-<li>Learn by commute from UWS down to the Recurse Hub in downtown Brooklyn</li>
-<li>Got a tour of the facilities</li>
-<li>Socialized and met other folks in the batch over 🥯 ☕️</li>
-<li>Did a code pairing workshop -- wrote a Conway's game of life implementation as a pair via React/NextJS with <a href="https://github.com/freeman-jiang">freeman-jiang</a> (<a href="https://github.com/etgrieco/recurse-cgol">source code</a> and <a href="https://conway.freemanjiang.com/">deployed web app</a>)
+<li>Commuted downtown by bike (UWS -&gt; Downtown Brooklyn)</li>
+<li>Went a couple lessons into <a href="https://frontendmasters.com/courses/algorithms/">The last algorithms course you'll need</a>, practiced some binary search</li>
+<li>Realized I needed some extra practice on groking binary search, decided to try some animating</li>
+<li>Went with p5.js, since it's a good starting point for the skills I have
 <ul>
-<li>Was <em>incredibly</em> intrigued by a novel implementation using <a href="https://typst.app/">typst</a> with PDF outputs as 'steps' in the game of life</li>
+<li>Realized that the <a href="https://editor.p5js.org/">p5.js</a> editor is cool, but lacks type-checking that I am used to at this point</li>
+<li><a href="https://www.npmjs.com/package/@types/p5">the types package</a> exists, and next steps was to get it working in a nice hot-reloading environment</li>
+<li>Success! Here's <a href="https://github.com/etgrieco/recurse-binary-search-p5">my project</a> setting up the animation in p5
+<ul>
+<li>Maybe turn it into a template repository? 🤔</li>
 </ul>
 </li>
-<li>Built this blog with this basic static site generation tool <a href="https://github.com/11ty/eleventy/">11ty</a> -- thanks <a href="https://palomakop.tv/">Paloma</a> for pointing me in the right direction, there!
-<ul>
-<li>Also learned some basics of leveraging GH actions for some build/deploy steps (commit -&gt; update blog will keep this sustainable!)</li>
 </ul>
 </li>
-<li>Started some course browsing for getting started to code tomorrow. Considering:
-<ul>
-<li><a href="https://frontendmasters.com/courses/algorithms/">The last algorithms course you'll need</a>, <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/">introduction to algorithms</a>, and <a href="https://ocw.mit.edu/courses/6-837-computer-graphics-fall-2012/">computer graphics</a></li>
-<li>thinking through if there's a way to start on a prototype game soon enough as a jumping off point to learn and implement these kinds of things</li>
-<li>if not 'the game', then at least some web things demonstrating some 'what I learned' in a fun, interactive way!</li>
-</ul>
-</li>
+<li>Ended the day with listening to some 'non-programming presentations' at the Recurse center, where I heard people present about biking across New Zealand, <a href="https://youtu.be/ECoWZtFO-pU?si=P_KvVAKIDMrppXLs&amp;t=55">eating lightbulbs</a>, role-play STEM education, and how to <a href="https://www.youtube.com/watch?v=fvM8ow6zNw4">fairly cut a cake</a> -- or any kind of divisible resource -- fairly.</li>
 </ol>
-<p>Anyway, this day flew by and I had fun putting out at least a bit of code through the pairing experience! ✌️</p>
+<h2 id="working-on-the-p5-js-animation">Working on the P5.js animation</h2>
+<p>Animation and graphical work is pretty new to me.</p>
+<p>Here's what I got done for the animation so far:</p>
+<p id="binary-search-progress-video-desc" class="visually-hidden">
+    W1D3 progress on a binary search illustration
+</p>
+<video controls="" width="640" height="360" aria-describedby="binary-search-progress-video-desc">
+    <source src="/blog-assets/recurse-w1d3/end-of-w1d3-binary-search-progress.mp4" type="video/mp4">
+</video>
+([commit](https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9))
+<p>As I was going through:</p>
+<p>I realized that it was superior to structure my code in a (very light)'state-machine' pattern</p>
+<p><em>Before</em></p>
+<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/1Ibfd9BzIP-728.avif 728w"><source type="image/webp" srcset="/blog/recurse-w1d3/1Ibfd9BzIP-728.webp 728w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/1Ibfd9BzIP-728.png" alt="Using a series of boolean flags to manage state through progress in an animation" width="728" height="228"></picture></p>
+<p><em>After</em></p>
+<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/ESnxlDuoCP-596.avif 596w"><source type="image/webp" srcset="/blog/recurse-w1d3/ESnxlDuoCP-596.webp 596w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/ESnxlDuoCP-596.png" alt="Using string literals as markers of discrete states to gate progress through animation phases" width="596" height="248"></picture></p>
+<p>And while I <em>could</em> do some work to tightly couple these state enums to the data pieces that are relevant just to that 'scene', for now I just used comments to organize it: (<a href="https://github.com/etgrieco/recurse-binary-search-p5/blob/3829817bfb805ed59d01263369c2770fb564c3d9/src/main.ts#L35-L58">see lines</a>)</p>
+<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/KHe1dOr0c--910.avif 910w"><source type="image/webp" srcset="/blog/recurse-w1d3/KHe1dOr0c--910.webp 910w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/KHe1dOr0c--910.png" alt="Example of organizing state using some basic comments" width="910" height="890"></picture></p>
+<p>Finally, the usefulness of this state technique definitely came to life when I could easy 'jump scenes' in order to debug and tweak certain parts of my animation. This combined very well with the TypeScript + hot-reloading setup:</p>
+<p id="hot-reload-video-desc" class="visually-hidden">
+TypeScript + hot-reloading setup so that I can quickly iterate on visual tweaks to the animation
+</p>
+<video controls="" width="640" height="360" aria-describedby="hot-reload-video-desc">
+    <source src="/blog-assets/recurse-w1d3/example-hot-reload-and-tweak-in-animation-scene.mp4" type="video/mp4">
+</video>
+<p>And that's definitely something I always value -- put in a little bit of effort for the most useful kind of fast-feedback possible:</p>
+<ul>
+<li>Fast code feedback via TypeScript; fail at compilation, not runtime!</li>
+<li>Fast visual feedback via hot-reloading</li>
+</ul>
+<p>Some hopes for tomorrow:</p>
+<ul>
+<li>Improve (finish?) the animation to show how binary search works -- <a href="https://www.cs.usfca.edu/~galles/visualization/Search.html">something like this page</a>, but with my own twist</li>
+<li>Consider if its worth to publish a basic vite + p5.js setup, since I came up with my own 'flavor' of getting the beginning working (this <a href="https://dev.to/tendonnman/how-to-use-p5js-with-typescript-and-webpack-57ae">blogpost</a> for webpack got me started, with some adjustments)</li>
+</ul>
 
-<ul class="links-nextprev"><li class="links-nextprev-next">Next →<br><a href="/blog/recurse-w1d3/">Recurse: W1D3</a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w1d2/">Recurse: W1D2</a></li>
 </ul>
 
 			</heading-anchors>
@@ -515,7 +545,7 @@ header {
 			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
 		</footer>
 
-		<!-- This page `/blog/recurse-w1d2/` was built on 2025-02-20T03:01:20.368Z -->
+		<!-- This page `/blog/recurse-w1d3/` was built on 2025-02-20T03:01:20.368Z -->
 		<script type="module" src="/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>
