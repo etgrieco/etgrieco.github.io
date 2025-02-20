@@ -43,7 +43,7 @@
 &lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;binary-search-progress-video-desc&quot;&gt;
     &lt;source src=&quot;https://example.com/blog-assets/recurse-w1d3/end-of-w1d3-binary-search-progress.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
-([commit](https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9))
+&lt;p&gt;(&lt;a href=&quot;https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9&quot;&gt;commit&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;As I was going through:&lt;/p&gt;
 &lt;p&gt;I realized that it was superior to structure my code in a (very light)&#39;state-machine&#39; pattern&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Before&lt;/em&gt;&lt;/p&gt;
