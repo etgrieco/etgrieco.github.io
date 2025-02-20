@@ -30,6 +30,7 @@ Here's what I got done for the animation so far:
 <video controls width="640" height="360" aria-describedby="binary-search-progress-video-desc">
     <source src="/blog-assets/recurse-w1d3/end-of-w1d3-binary-search-progress.mp4" type="video/mp4">
 </video>
+
 ([commit](https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9))
 
 As I was going through:
