@@ -5,11 +5,65 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://example.com/feed/feed.xml" rel="self" />
   <link href="https://example.com/" />
-  <updated>2025-02-22T00:00:00Z</updated>
+  <updated>2025-02-26T00:00:00Z</updated>
   <id>https://example.com/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W2D1-2</title>
+    <link href="https://example.com/blog/recurse-w2d1-2/" />
+    <updated>2025-02-26T00:00:00Z</updated>
+    <id>https://example.com/blog/recurse-w2d1-2/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-center-w2d1-2&quot;&gt;Recurse center: W2D1-2&lt;/h1&gt;
+&lt;p&gt;These past two days, I&#39;ve been working on what I&#39;ve been calling &#39;building reps&#39; with building games and animation.&lt;/p&gt;
+&lt;h2 id=&quot;w2d1-space-invaders-clone&quot;&gt;W2D1 - space invaders clone&lt;/h2&gt;
+&lt;p&gt;On W2D1, started on a space invaders clone to get a feel for &lt;a href=&quot;https://github.com/pmndrs/koota&quot;&gt;koota&lt;/a&gt; as a state management solution for JavaScript based games in general. I started building it out using p5.js as the drawing layer. Based off my lessons on the last animation, I&#39;ve done a much better job distinguishing the simulation state and how that model moves over time, from the &#39;drawing&#39; actions that derive from changes to that state.&lt;/p&gt;
+&lt;p&gt;Now that it&#39;s W2D2, here&#39;s &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/commit/f968cc2198eb548095502eb99466d524c1c301ab&quot;&gt;a quick snapshot&lt;/a&gt; for where I&#39;ve gotten so far. Integrating Koota hasn&#39;t quite worked out yet, but here&#39;s some reflections on at least distinguishing the simulation from the draw:&lt;/p&gt;
+&lt;p&gt;I&#39;ve encapsulated the state + simulation into a lightweight object for now (perhaps, this should just be pure procedures? Not sure.)&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sceneId &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;CRAWL_INTRO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;simulation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;drawIntro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;simulation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sceneId &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SPACE_INVADERS_GAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;simulation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;drawGame&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;simulation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gameSceneState&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sceneId &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;END&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// etc.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This allows me to break up the different simulations happening into different &#39;scenes&#39; that run independently of each other.&lt;/p&gt;
+&lt;p&gt;Right now, I&#39;m controlling the transitions between these scenes in less than optimal ways, by setting up an overly complex machine like so:&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;gameSceneState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    sceneId&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;CRAWL_INTRO&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    simulation&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;introSimulationFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;queueNextTick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        gameSceneState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            sceneId&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SPACE_INVADERS_GAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            simulation&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;gameSimulationFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+                p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;queueNextTick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    gameSceneState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        sceneId&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;END&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Definitely some cleanup and re-thinking I can do here; I basically came up with my own version of callback hell with what I have here. Trying to create something lightweight, without having to reach for a more robust solution like &lt;a href=&quot;https://xstate.js.org/&quot;&gt;xstate&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also ended up publishing the &lt;a href=&quot;https://github.com/etgrieco/p5-vite-typescript-template&quot;&gt;P5, TypeScript, Vite template&lt;/a&gt;. I used this as the starting point for my space invaders game, so it was good to get that out of the way.&lt;/p&gt;
+&lt;h2 id=&quot;w2d2-pairing-jam&quot;&gt;W2D2 - pairing jam&lt;/h2&gt;
+&lt;p&gt;There was a pairing jam set up today for the entirety of the day. I ended up pairing with &lt;a href=&quot;https://github.com/rwhaling&quot;&gt;rwhaling&lt;/a&gt;. The goal there was 1) learn some React, 2) figure out how to get some kind of shared state between our &amp;quot;React world&amp;quot; and our P5.js world and 3) create some fun math-based animations.&lt;/p&gt;
+&lt;p&gt;I learned a lot, especially on the #3 front. It was also gratifying to be able to &lt;a href=&quot;https://github.com/etgrieco/p5-vite-typescript-template&quot;&gt;use the template&lt;/a&gt; from the day prior to get some fast environment setup.&lt;/p&gt;
+&lt;p&gt;We ended up with a finish product meeting our goals. It can be played &lt;a href=&quot;https://websiteaboutmy.website/p5-react-test/&quot;&gt;with here&lt;/a&gt;&lt;/p&gt;
+&lt;p id=&quot;p5-react-demo-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+  A demo of the animation using P5.js and React
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;p5-react-demo-video-desc&quot;&gt;
+    &lt;source src=&quot;https://example.com/blog-assets/recurse-w2d1-2/p5-react-demo-web.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W1D4-5</title>
     <link href="https://example.com/blog/recurse-w1d4-5/" />
