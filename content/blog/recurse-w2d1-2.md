@@ -64,3 +64,10 @@ There was a pairing jam set up today for the entirety of the day. I ended up pai
 I learned a lot, especially on the #3 front. It was also gratifying to be able to [use the template](https://github.com/etgrieco/p5-vite-typescript-template) from the day prior to get some fast environment setup.
 
 We ended up with a finish product meeting our goals. It can be played [with here](https://websiteaboutmy.website/p5-react-test/)
+
+<p id="p5-react-demo-video-desc" class="visually-hidden">
+  A demo of the animation using P5.js and React
+</p>
+<video controls width="640" height="360" aria-describedby="p5-react-demo-video-desc">
+    <source src="/blog-assets/recurse-w2d1-2/p5-react-demo-web.mp4" type="video/mp4">
+</video>
