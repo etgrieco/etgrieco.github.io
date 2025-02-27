@@ -22,6 +22,6 @@ Overall, the migration was pretty smooth. Spoke with [krispya](https://github.co
 
 Here is a snapshot build of the game in the current state [at this commit](https://github.com/etgrieco/space-invaders-p5-koota/commit/187a92e0ec867fe8e2e96cd5681baa00075ca34c).
 
-[Play "space invaders" progress at W2d3 here](/recurse-w2d3/space-invaders-demo/index.html)
+[Play "space invaders" progress at W2d3 here](/blog-assets/recurse-w2d3/space-invaders-demo/index.html)
 
 
