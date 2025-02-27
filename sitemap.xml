@@ -18,31 +18,36 @@
 	
 	<url>
 		<loc>https://websiteaboutmy.website/blog/recurse-w2d1-2/</loc>
+		<lastmod>2025-02-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://websiteaboutmy.website/blog/recurse-w2d3/</loc>
 		<lastmod>2025-02-26</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://websiteaboutmy.website/blog-archive/</loc>
-		<lastmod>2025-02-26</lastmod>
+		<lastmod>2025-02-27</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://websiteaboutmy.website/blog/</loc>
-		<lastmod>2025-02-26</lastmod>
+		<lastmod>2025-02-27</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://websiteaboutmy.website/</loc>
-		<lastmod>2025-02-26</lastmod>
+		<lastmod>2025-02-27</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://websiteaboutmy.website/tags/</loc>
-		<lastmod>2025-02-26</lastmod>
+		<lastmod>2025-02-27</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://websiteaboutmy.website/feed/feed.xml</loc>
-		<lastmod>2025-02-26</lastmod>
+		<lastmod>2025-02-27</lastmod>
 	</url>
 </urlset>

@@ -11,9 +11,32 @@
     <name>Your Name</name>
   </author>
   <entry>
+    <title>Recurse: W2D3</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w2d3/" />
+    <updated>2025-02-26T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w2d3/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-center-w2d1-2&quot;&gt;Recurse center: W2D1-2&lt;/h1&gt;
+&lt;p&gt;Today, I attempted to do a deep dive into some of the fundamentals of ECS architectures, and how perhaps this could be useful for layering into the game.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/compare/f968cc2198eb548095502eb99466d524c1c301ab...187a92e0ec867fe8e2e96cd5681baa00075ca34c&quot;&gt;Here is the diff&lt;/a&gt; of things I got done migrating from &amp;quot;naive, POJO&amp;quot; logic to &lt;a href=&quot;https://github.com/pmndrs/koota&quot;&gt;koota&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The promises for using this library/state architecture was:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;composability of behaviors (&amp;quot;components&amp;quot;) at a per-entity level&lt;/li&gt;
+&lt;li&gt;composability of these behaviors into &amp;quot;systems&amp;quot; that would dictate how components interact with each other&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The results we hope to get from this are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fun, flexible ways to put these behaviors together as a game evolves&lt;/li&gt;
+&lt;li&gt;Easy ways to refactor things as new &#39;concepts&#39; for components/systems emerge from the development project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, the migration was pretty smooth. Spoke with &lt;a href=&quot;https://github.com/krispya&quot;&gt;krispya&lt;/a&gt; a bit about strategies used, asked questions about whether I was &#39;doing it right&#39;.&lt;/p&gt;
+&lt;p&gt;Here is a snapshot build of the game in the current state &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/commit/187a92e0ec867fe8e2e96cd5681baa00075ca34c&quot;&gt;at this commit&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://websiteaboutmy.website/recurse-w2d3/space-invaders-demo/index.html&quot;&gt;Play &amp;quot;space invaders&amp;quot; progress at W2d3 here&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>Recurse: W2D1-2</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w2d1-2/" />
-    <updated>2025-02-26T00:00:00Z</updated>
+    <updated>2025-02-25T00:00:00Z</updated>
     <id>https://websiteaboutmy.website/blog/recurse-w2d1-2/</id>
     <content type="html">&lt;h1 id=&quot;recurse-center-w2d1-2&quot;&gt;Recurse center: W2D1-2&lt;/h1&gt;
 &lt;p&gt;These past two days, I&#39;ve been working on what I&#39;ve been calling &#39;building reps&#39; with building games and animation.&lt;/p&gt;

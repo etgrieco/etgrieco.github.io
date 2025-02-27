@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Recurse: W2D1-2</title>
+		<title>Recurse: W2D3</title>
 		<meta name="description" content="A porflolio and blog about Elliott Grieco">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Elliott Grieco">
 		
@@ -473,62 +473,31 @@ header {
 		<main id="skip">
 			<heading-anchors>
 				
-<h1 id="recurse-w2d1-2">Recurse: W2D1-2</h1>
+<h1 id="recurse-w2d3">Recurse: W2D3</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-02-25">25 February 2025</time></li>
+	<li><time datetime="2025-02-26">26 February 2025</time></li>
 	<li><a href="/tags/recurse/" class="post-tag">recurse</a></li>
 </ul>
 
 <h1 id="recurse-center-w2d1-2">Recurse center: W2D1-2</h1>
-<p>These past two days, I've been working on what I've been calling 'building reps' with building games and animation.</p>
-<h2 id="w2d1-space-invaders-clone">W2D1 - space invaders clone</h2>
-<p>On W2D1, started on a space invaders clone to get a feel for <a href="https://github.com/pmndrs/koota">koota</a> as a state management solution for JavaScript based games in general. I started building it out using p5.js as the drawing layer. Based off my lessons on the last animation, I've done a much better job distinguishing the simulation state and how that model moves over time, from the 'drawing' actions that derive from changes to that state.</p>
-<p>Now that it's W2D2, here's <a href="https://github.com/etgrieco/space-invaders-p5-koota/commit/f968cc2198eb548095502eb99466d524c1c301ab">a quick snapshot</a> for where I've gotten so far. Integrating Koota hasn't quite worked out yet, but here's some reflections on at least distinguishing the simulation from the draw:</p>
-<p>I've encapsulated the state + simulation into a lightweight object for now (perhaps, this should just be pure procedures? Not sure.)</p>
-<pre class="language-ts" tabindex="0"><code class="language-ts"><span class="token keyword">if</span> <span class="token punctuation">(</span>gameSceneState<span class="token punctuation">.</span>sceneId <span class="token operator">===</span> <span class="token string">"CRAWL_INTRO"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    gameSceneState<span class="token punctuation">.</span>simulation<span class="token punctuation">.</span><span class="token function">tick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">drawIntro</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> gameSceneState<span class="token punctuation">.</span>simulation<span class="token punctuation">.</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>gameSceneState<span class="token punctuation">.</span>sceneId <span class="token operator">===</span> <span class="token string">"SPACE_INVADERS_GAME"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    gameSceneState<span class="token punctuation">.</span>simulation<span class="token punctuation">.</span><span class="token function">tick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">drawGame</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> gameSceneState<span class="token punctuation">.</span>simulation<span class="token punctuation">.</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>gameSceneState<span class="token punctuation">.</span>sceneId <span class="token operator">===</span> <span class="token string">"END"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment">// etc.</span></code></pre>
-<p>This allows me to break up the different simulations happening into different 'scenes' that run independently of each other.</p>
-<p>Right now, I'm controlling the transitions between these scenes in less than optimal ways, by setting up an overly complex machine like so:</p>
-<pre class="language-ts" tabindex="0"><code class="language-ts">gameSceneState <span class="token operator">=</span> <span class="token punctuation">{</span>
-    sceneId<span class="token operator">:</span> <span class="token string">"CRAWL_INTRO"</span><span class="token punctuation">,</span>
-    simulation<span class="token operator">:</span> <span class="token function">introSimulationFactory</span><span class="token punctuation">(</span>
-    p<span class="token punctuation">,</span>
-    <span class="token function">queueNextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        gameSceneState <span class="token operator">=</span> <span class="token punctuation">{</span>
-            sceneId<span class="token operator">:</span> <span class="token string">"SPACE_INVADERS_GAME"</span><span class="token punctuation">,</span>
-            simulation<span class="token operator">:</span> <span class="token function">gameSimulationFactory</span><span class="token punctuation">(</span>
-                p<span class="token punctuation">,</span>
-                <span class="token function">queueNextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-                    gameSceneState <span class="token operator">=</span> <span class="token punctuation">{</span>
-                        sceneId<span class="token operator">:</span> <span class="token string">"END"</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<p>Definitely some cleanup and re-thinking I can do here; I basically came up with my own version of callback hell with what I have here. Trying to create something lightweight, without having to reach for a more robust solution like <a href="https://xstate.js.org/">xstate</a></p>
-<p>I also ended up publishing the <a href="https://github.com/etgrieco/p5-vite-typescript-template">P5, TypeScript, Vite template</a>. I used this as the starting point for my space invaders game, so it was good to get that out of the way.</p>
-<h2 id="w2d2-pairing-jam">W2D2 - pairing jam</h2>
-<p>There was a pairing jam set up today for the entirety of the day. I ended up pairing with <a href="https://github.com/rwhaling">rwhaling</a>. The goal there was 1) learn some React, 2) figure out how to get some kind of shared state between our &quot;React world&quot; and our P5.js world and 3) create some fun math-based animations.</p>
-<p>I learned a lot, especially on the #3 front. It was also gratifying to be able to <a href="https://github.com/etgrieco/p5-vite-typescript-template">use the template</a> from the day prior to get some fast environment setup.</p>
-<p>We ended up with a finish product meeting our goals. It can be played <a href="https://websiteaboutmy.website/p5-react-test/">with here</a></p>
-<p id="p5-react-demo-video-desc" class="visually-hidden">
-  A demo of the animation using P5.js and React
-</p>
-<video controls="" width="640" height="360" aria-describedby="p5-react-demo-video-desc">
-    <source src="/blog-assets/recurse-w2d1-2/p5-react-demo-web.mp4" type="video/mp4">
-</video>
+<p>Today, I attempted to do a deep dive into some of the fundamentals of ECS architectures, and how perhaps this could be useful for layering into the game.</p>
+<p><a href="https://github.com/etgrieco/space-invaders-p5-koota/compare/f968cc2198eb548095502eb99466d524c1c301ab...187a92e0ec867fe8e2e96cd5681baa00075ca34c">Here is the diff</a> of things I got done migrating from &quot;naive, POJO&quot; logic to <a href="https://github.com/pmndrs/koota">koota</a></p>
+<p>The promises for using this library/state architecture was:</p>
+<ul>
+<li>composability of behaviors (&quot;components&quot;) at a per-entity level</li>
+<li>composability of these behaviors into &quot;systems&quot; that would dictate how components interact with each other</li>
+</ul>
+<p>The results we hope to get from this are:</p>
+<ul>
+<li>Fun, flexible ways to put these behaviors together as a game evolves</li>
+<li>Easy ways to refactor things as new 'concepts' for components/systems emerge from the development project.</li>
+</ul>
+<p>Overall, the migration was pretty smooth. Spoke with <a href="https://github.com/krispya">krispya</a> a bit about strategies used, asked questions about whether I was 'doing it right'.</p>
+<p>Here is a snapshot build of the game in the current state <a href="https://github.com/etgrieco/space-invaders-p5-koota/commit/187a92e0ec867fe8e2e96cd5681baa00075ca34c">at this commit</a>.</p>
+<p><a href="/recurse-w2d3/space-invaders-demo/index.html">Play &quot;space invaders&quot; progress at W2d3 here</a></p>
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w1d4-5/">Recurse: W1D4-5</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/recurse-w2d3/">Recurse: W2D3</a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w2d1-2/">Recurse: W2D1-2</a></li>
 </ul>
 
 			</heading-anchors>
@@ -538,7 +507,7 @@ header {
 			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
 		</footer>
 
-		<!-- This page `/blog/recurse-w2d1-2/` was built on 2025-02-27T01:52:59.954Z -->
+		<!-- This page `/blog/recurse-w2d3/` was built on 2025-02-27T01:52:59.954Z -->
 		<script type="module" src="/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>
