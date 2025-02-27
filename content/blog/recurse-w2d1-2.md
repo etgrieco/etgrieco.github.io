@@ -1,6 +1,6 @@
 ---js
 const title="Recurse: W2D1-2"
-const date="2025-02-26"
+const date="2025-02-25"
 const tags="recurse"
 ---
 
