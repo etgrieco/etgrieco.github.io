@@ -5,17 +5,59 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-02-26T00:00:00Z</updated>
+  <updated>2025-02-27T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
+    <title>Recurse: W2D4</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w2d4/" />
+    <updated>2025-02-27T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w2d4/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-center-w2d4&quot;&gt;Recurse center: W2D4&lt;/h1&gt;
+&lt;p&gt;After getting into the basics of &lt;a href=&quot;https://en.wikipedia.org/wiki/Entity_component_system&quot;&gt;ECS&lt;/a&gt; and &lt;a href=&quot;https://github.com/pmndrs/koota&quot;&gt;koota&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Most of my coding time was dedicated towards doing some maintenance and general code pattern making around organizing the parts.&lt;/p&gt;
+&lt;p&gt;Turns out the simplest way to go about it is to segregate Entity-Component-System by entity, component (&amp;quot;trait&amp;quot;s), and system definitions.&lt;/p&gt;
+&lt;p&gt;All changes made for the koota migration are captured &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/pull/1&quot;&gt;in this pull request&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ultimately, the &amp;quot;main&amp;quot; method for our game simulation is now organized as follows&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;When the game simulation is started, &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation.ts#L87-L147&quot;&gt;do some one-off resource creation&lt;/a&gt;. This includes setting up listening for the controller inputs, setting up basic level entities, and setting up the initial state&lt;/li&gt;
+&lt;li&gt;Set up a method for every tick. Every tick, &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation.ts#L170-L212&quot;&gt;run through each of the systems&lt;/a&gt; to perform updates on the underlying components per-entity. Concepts that are beginning to merge are &amp;quot;game logic systems&amp;quot; and &amp;quot;draw&amp;quot; systems. The game logic systems depends upon the game state only, and is about making changes to that game state. The &amp;quot;draw&amp;quot; systems then take this processed game state, and determines what to draw on the screen based on this info.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While improving basic code organization, some logic was improved as well -- I learned about &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_bounding_rectangle&quot;&gt;axis-aligned bounding boxes&lt;/a&gt;, and this was a rather quick way to get collision detection working. I&#39;m happy overall that the bounding box and drawing logic are completely independent of one-another, which feels much better than where I was with working on binary sort a week ago.&lt;/p&gt;
+&lt;h2 id=&quot;some-things-i-m-unhappy-about&quot;&gt;Some things I&#39;m unhappy about&lt;/h2&gt;
+&lt;p&gt;Thinking through what I should do with &amp;quot;systems&amp;quot; &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation/adhocSystems.ts#L17&quot;&gt;like this&lt;/a&gt;. Here, I am simply calling it an &#39;adhoc&#39; system, and having it operate on a single entity. As designed, functions that receive an entity alone are kind of weird, and probably an anti-pattern. There are &#39;hidden&#39; parts of the contract as-is that say &amp;quot;oh, by the way this better be a &lt;code&gt;Position&lt;/code&gt; and &lt;code&gt;Velocity&lt;/code&gt;-based entity, or this won&#39;t work. These are all code-smells to me.&lt;/p&gt;
+&lt;p&gt;Perhaps the solution is -- turn everything into a system, even if it feels like a one-off. Think if there&#39;s some kind of extractable behavior. For example, perhaps there is something like a &#39;route&#39; that this entity should follow, and there&#39;s a systemic relationship between &#39;routes&#39;, &#39;positions&#39;, and velocities? Perhaps it is really that simple. I&#39;ll give it a shot tomorrow.&lt;/p&gt;
+&lt;p&gt;On the one hand, in these ambiguous one-off cases, I&#39;m happy to leave it alone. Gives me time to find the right abstraction.&lt;/p&gt;
+&lt;p&gt;The nice thing here, at least, is that the wrong abstraction does not appear to be as &#39;expensive&#39; as when the same wrong abstraction is selected for in OOP.&lt;/p&gt;
+&lt;h2 id=&quot;some-things-to-work-on-tomorrow&quot;&gt;Some things to work on tomorrow&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Look into turning swarm behavior into a system&lt;/li&gt;
+&lt;li&gt;Fix controls by using an input queue and handle inputs per-tick&lt;/li&gt;
+&lt;li&gt;Add some interesting effects, especially lighting
+&lt;ul&gt;
+&lt;li&gt;since the game logic is completely de-coupled from the view, consider experimenting with other drawing strategies?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;update koota to 0.2.0. I &lt;a href=&quot;https://github.com/pmndrs/koota/issues/54&quot;&gt;posted an issue&lt;/a&gt; today, which got fixed by this release.&lt;/li&gt;
+&lt;li&gt;Perhaps create a github action for building and publishing assets per-merge to main, for long-term tracking of progress&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;some-things-on-the-horizon&quot;&gt;Some things on the horizon&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Recurse&#39;s &amp;quot;impossible&amp;quot; day. Is that when some kind of client-server interaction should be handled&lt;/li&gt;
+&lt;li&gt;A game jam -- a game jame is being scheduled for sometime next week, it seems. that would take me off my current project for a bit, but game jams are fun.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is the current code &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/commit/930805e2ba6031396e5df1f2e6c66d4ea3b6ebf5&quot;&gt;snapshot&lt;/a&gt; of my implementation for the day&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://websiteaboutmy.website/blog-assets/recurse-w2d4/space-invaders-demo/index.html&quot;&gt;Here are the built assets that can be played with on the website.&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>Recurse: W2D3</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w2d3/" />
     <updated>2025-02-26T00:00:00Z</updated>
     <id>https://websiteaboutmy.website/blog/recurse-w2d3/</id>
-    <content type="html">&lt;h1 id=&quot;recurse-center-w2d1-2&quot;&gt;Recurse center: W2D1-2&lt;/h1&gt;
+    <content type="html">&lt;h1 id=&quot;recurse-center-w2d3&quot;&gt;Recurse center: W2D3&lt;/h1&gt;
 &lt;p&gt;Today, I attempted to do a deep dive into some of the fundamentals of ECS architectures, and how perhaps this could be useful for layering into the game.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/compare/f968cc2198eb548095502eb99466d524c1c301ab...187a92e0ec867fe8e2e96cd5681baa00075ca34c&quot;&gt;Here is the diff&lt;/a&gt; of things I got done migrating from &amp;quot;naive, POJO&amp;quot; logic to &lt;a href=&quot;https://github.com/pmndrs/koota&quot;&gt;koota&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The promises for using this library/state architecture was:&lt;/p&gt;
