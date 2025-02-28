@@ -15,3 +15,10 @@ The biggest thing I had trouble with the two different drawing models -- p5.js b
 The other thing I had trouble with was that the coordinate systems are completely different -- as a result, I either have to 1) do some kind of transformation during the draw logic to the 'coordinate assumptions' underlying all of my logic or 2) completely re-write the position logic to fit this new system.
 
 For now, I just let the problem exist as-is 🙃 -- [you can play the work-in-progress I ended the day with here](/blog-assets/recurse-w2d5/space-invaders-demo)
+
+<p id="space-invaders-demo-video-desc" class="visually-hidden">
+  Space invaders demo at end of day W2D5
+</p>
+<video controls width="640" height="360" aria-describedby="space-invaders-demo-video-desc">
+    <source src="/blog-assets/recurse-w2d5/space-invaders-demo-w2d5.mp4" type="video/mp4">
+</video>
