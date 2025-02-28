@@ -4,7 +4,7 @@ const date="2025-02-26"
 const tags="recurse"
 ---
 
-# Recurse center: W2D1-2
+# Recurse center: W2D3
 
 Today, I attempted to do a deep dive into some of the fundamentals of ECS architectures, and how perhaps this could be useful for layering into the game.
 
