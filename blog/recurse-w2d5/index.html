@@ -486,6 +486,12 @@ header {
 <p>The biggest thing I had trouble with the two different drawing models -- p5.js basically had me clearing the canvas and re-drawing every frame. For three.js, I had to perform per-frame updates to underlying object meshes. What I ended up doing was attaching the meshes to the entities directly, and performing a separate &quot;mesh draw&quot; system for these. Ultimately, the most vital thing to do was updates to position over time. Other properties, such as rotation, are not currently tracked in the game engine, but could be added later.</p>
 <p>The other thing I had trouble with was that the coordinate systems are completely different -- as a result, I either have to 1) do some kind of transformation during the draw logic to the 'coordinate assumptions' underlying all of my logic or 2) completely re-write the position logic to fit this new system.</p>
 <p>For now, I just let the problem exist as-is 🙃 -- <a href="/blog-assets/recurse-w2d5/space-invaders-demo">you can play the work-in-progress I ended the day with here</a></p>
+<p id="space-invaders-demo-video-desc" class="visually-hidden">
+  Space invaders demo at end of day W2D5
+</p>
+<video controls="" width="640" height="360" aria-describedby="space-invaders-demo-video-desc">
+    <source src="/blog-assets/recurse-w2d5/space-invaders-demo-w2d5.mp4" type="video/mp4">
+</video>
 
 <ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w2d4/">Recurse: W2D4</a></li>
 </ul>
@@ -497,7 +503,7 @@ header {
 			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
 		</footer>
 
-		<!-- This page `/blog/recurse-w2d5/` was built on 2025-02-28T22:38:39.405Z -->
+		<!-- This page `/blog/recurse-w2d5/` was built on 2025-02-28T22:43:10.161Z -->
 		<script type="module" src="/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>

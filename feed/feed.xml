@@ -21,6 +21,12 @@
 &lt;p&gt;The biggest thing I had trouble with the two different drawing models -- p5.js basically had me clearing the canvas and re-drawing every frame. For three.js, I had to perform per-frame updates to underlying object meshes. What I ended up doing was attaching the meshes to the entities directly, and performing a separate &amp;quot;mesh draw&amp;quot; system for these. Ultimately, the most vital thing to do was updates to position over time. Other properties, such as rotation, are not currently tracked in the game engine, but could be added later.&lt;/p&gt;
 &lt;p&gt;The other thing I had trouble with was that the coordinate systems are completely different -- as a result, I either have to 1) do some kind of transformation during the draw logic to the &#39;coordinate assumptions&#39; underlying all of my logic or 2) completely re-write the position logic to fit this new system.&lt;/p&gt;
 &lt;p&gt;For now, I just let the problem exist as-is 🙃 -- &lt;a href=&quot;https://websiteaboutmy.website/blog-assets/recurse-w2d5/space-invaders-demo&quot;&gt;you can play the work-in-progress I ended the day with here&lt;/a&gt;&lt;/p&gt;
+&lt;p id=&quot;space-invaders-demo-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+  Space invaders demo at end of day W2D5
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;space-invaders-demo-video-desc&quot;&gt;
+    &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w2d5/space-invaders-demo-w2d5.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
 </content>
   </entry>
   <entry>
