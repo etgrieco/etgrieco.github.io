@@ -5,11 +5,24 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-02-27T00:00:00Z</updated>
+  <updated>2025-02-28T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W2D5</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w2d5/" />
+    <updated>2025-02-28T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w2d5/</id>
+    <content type="html">&lt;h1 id=&quot;w2d5&quot;&gt;W2D5&lt;/h1&gt;
+&lt;p&gt;Today I took on one of the ideas I thought about yesterday -- moving the game to another rending engine.&lt;/p&gt;
+&lt;p&gt;I decided that the next step in my journey would be seeing how well the game ported over to a 3d engine -- &lt;a href=&quot;https://threejs.org/&quot;&gt;three.js&lt;/a&gt;. Here is a snapshot of &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/commit/c1c14b43a2e9a035a740a9e7369c0aff14655ea8&quot;&gt;all those changes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The biggest thing I had trouble with the two different drawing models -- p5.js basically had me clearing the canvas and re-drawing every frame. For three.js, I had to perform per-frame updates to underlying object meshes. What I ended up doing was attaching the meshes to the entities directly, and performing a separate &amp;quot;mesh draw&amp;quot; system for these. Ultimately, the most vital thing to do was updates to position over time. Other properties, such as rotation, are not currently tracked in the game engine, but could be added later.&lt;/p&gt;
+&lt;p&gt;The other thing I had trouble with was that the coordinate systems are completely different -- as a result, I either have to 1) do some kind of transformation during the draw logic to the &#39;coordinate assumptions&#39; underlying all of my logic or 2) completely re-write the position logic to fit this new system.&lt;/p&gt;
+&lt;p&gt;For now, I just let the problem exist as-is 🙃 -- &lt;a href=&quot;https://websiteaboutmy.website/blog-assets/recurse-w2d5/space-invaders-demo&quot;&gt;you can play the work-in-progress I ended the day with here&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W2D4</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w2d4/" />

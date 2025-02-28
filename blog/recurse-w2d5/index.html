@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Recurse: W1D3</title>
+		<title>Recurse: W2D5</title>
 		<meta name="description" content="A porflolio and blog about Elliott Grieco">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Elliott Grieco">
 		
@@ -473,69 +473,21 @@ header {
 		<main id="skip">
 			<heading-anchors>
 				
-<h1 id="recurse-w1d3">Recurse: W1D3</h1>
+<h1 id="recurse-w2d5">Recurse: W2D5</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-02-19">19 February 2025</time></li>
+	<li><time datetime="2025-02-28">28 February 2025</time></li>
 	<li><a href="/tags/recurse/" class="post-tag">recurse</a></li>
 </ul>
 
-<h1 id="recurse-center-w1d3">Recurse center: W1D3</h1>
-<p>Some things I did and worked on at the Hub:</p>
-<ol>
-<li>Commuted downtown by bike (UWS -&gt; Downtown Brooklyn)</li>
-<li>Went a couple lessons into <a href="https://frontendmasters.com/courses/algorithms/">The last algorithms course you'll need</a>, practiced some binary search</li>
-<li>Realized I needed some extra practice on groking binary search, decided to try some animating</li>
-<li>Went with p5.js, since it's a good starting point for the skills I have
-<ul>
-<li>Realized that the <a href="https://editor.p5js.org/">p5.js</a> editor is cool, but lacks type-checking that I am used to at this point</li>
-<li><a href="https://www.npmjs.com/package/@types/p5">the types package</a> exists, and next steps was to get it working in a nice hot-reloading environment</li>
-<li>Success! Here's <a href="https://github.com/etgrieco/recurse-binary-search-p5">my project</a> setting up the animation in p5
-<ul>
-<li>Maybe turn it into a template repository? 🤔</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Ended the day with listening to some 'non-programming presentations' at the Recurse center, where I heard people present about biking across New Zealand, <a href="https://youtu.be/ECoWZtFO-pU?si=P_KvVAKIDMrppXLs&amp;t=55">eating lightbulbs</a>, role-play STEM education, and how to <a href="https://www.youtube.com/watch?v=fvM8ow6zNw4">fairly cut a cake</a> -- or any kind of divisible resource -- fairly.</li>
-</ol>
-<h2 id="working-on-the-p5-js-animation">Working on the P5.js animation</h2>
-<p>Animation and graphical work is pretty new to me.</p>
-<p>Here's what I got done for the animation so far:</p>
-<p id="binary-search-progress-video-desc" class="visually-hidden">
-    W1D3 progress on a binary search illustration
-</p>
-<video controls="" width="640" height="360" aria-describedby="binary-search-progress-video-desc">
-    <source src="/blog-assets/recurse-w1d3/end-of-w1d3-binary-search-progress.mp4" type="video/mp4">
-</video>
-<p>(<a href="https://github.com/etgrieco/recurse-binary-search-p5/tree/3829817bfb805ed59d01263369c2770fb564c3d9">commit</a>)</p>
-<p>As I was going through:</p>
-<p>I realized that it was superior to structure my code in a (very light)'state-machine' pattern</p>
-<p><em>Before</em></p>
-<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/1Ibfd9BzIP-728.avif 728w"><source type="image/webp" srcset="/blog/recurse-w1d3/1Ibfd9BzIP-728.webp 728w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/1Ibfd9BzIP-728.png" alt="Using a series of boolean flags to manage state through progress in an animation" width="728" height="228"></picture></p>
-<p><em>After</em></p>
-<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/ESnxlDuoCP-596.avif 596w"><source type="image/webp" srcset="/blog/recurse-w1d3/ESnxlDuoCP-596.webp 596w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/ESnxlDuoCP-596.png" alt="Using string literals as markers of discrete states to gate progress through animation phases" width="596" height="248"></picture></p>
-<p>And while I <em>could</em> do some work to tightly couple these state enums to the data pieces that are relevant just to that 'scene', for now I just used comments to organize it: (<a href="https://github.com/etgrieco/recurse-binary-search-p5/blob/3829817bfb805ed59d01263369c2770fb564c3d9/src/main.ts#L35-L58">see lines</a>)</p>
-<p><picture><source type="image/avif" srcset="/blog/recurse-w1d3/KHe1dOr0c--910.avif 910w"><source type="image/webp" srcset="/blog/recurse-w1d3/KHe1dOr0c--910.webp 910w"><img loading="lazy" decoding="async" src="/blog/recurse-w1d3/KHe1dOr0c--910.png" alt="Example of organizing state using some basic comments" width="910" height="890"></picture></p>
-<p>Finally, the usefulness of this state technique definitely came to life when I could easy 'jump scenes' in order to debug and tweak certain parts of my animation. This combined very well with the TypeScript + hot-reloading setup:</p>
-<p id="hot-reload-video-desc" class="visually-hidden">
-TypeScript + hot-reloading setup so that I can quickly iterate on visual tweaks to the animation
-</p>
-<video controls="" width="640" height="360" aria-describedby="hot-reload-video-desc">
-    <source src="/blog-assets/recurse-w1d3/example-hot-reload-and-tweak-in-animation-scene.mp4" type="video/mp4">
-</video>
-<p>And that's definitely something I always value -- put in a little bit of effort for the most useful kind of fast-feedback possible:</p>
-<ul>
-<li>Fast code feedback via TypeScript; fail at compilation, not runtime!</li>
-<li>Fast visual feedback via hot-reloading</li>
-</ul>
-<p>Some hopes for tomorrow:</p>
-<ul>
-<li>Improve (finish?) the animation to show how binary search works -- <a href="https://www.cs.usfca.edu/~galles/visualization/Search.html">something like this page</a>, but with my own twist</li>
-<li>Consider if its worth to publish a basic vite + p5.js setup, since I came up with my own 'flavor' of getting the beginning working (this <a href="https://dev.to/tendonnman/how-to-use-p5js-with-typescript-and-webpack-57ae">blogpost</a> for webpack got me started, with some adjustments)</li>
-</ul>
+<h1 id="w2d5">W2D5</h1>
+<p>Today I took on one of the ideas I thought about yesterday -- moving the game to another rending engine.</p>
+<p>I decided that the next step in my journey would be seeing how well the game ported over to a 3d engine -- <a href="https://threejs.org/">three.js</a>. Here is a snapshot of <a href="https://github.com/etgrieco/space-invaders-p5-koota/commit/c1c14b43a2e9a035a740a9e7369c0aff14655ea8">all those changes</a>.</p>
+<p>The biggest thing I had trouble with the two different drawing models -- p5.js basically had me clearing the canvas and re-drawing every frame. For three.js, I had to perform per-frame updates to underlying object meshes. What I ended up doing was attaching the meshes to the entities directly, and performing a separate &quot;mesh draw&quot; system for these. Ultimately, the most vital thing to do was updates to position over time. Other properties, such as rotation, are not currently tracked in the game engine, but could be added later.</p>
+<p>The other thing I had trouble with was that the coordinate systems are completely different -- as a result, I either have to 1) do some kind of transformation during the draw logic to the 'coordinate assumptions' underlying all of my logic or 2) completely re-write the position logic to fit this new system.</p>
+<p>For now, I just let the problem exist as-is 🙃 -- <a href="/blog-assets/recurse-w2d5/space-invaders-demo">you can play the work-in-progress I ended the day with here</a></p>
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w1d2/">Recurse: W1D2</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/recurse-w1d4-5/">Recurse: W1D4-5</a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w2d4/">Recurse: W2D4</a></li>
 </ul>
 
 			</heading-anchors>
@@ -545,7 +497,7 @@ TypeScript + hot-reloading setup so that I can quickly iterate on visual tweaks 
 			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
 		</footer>
 
-		<!-- This page `/blog/recurse-w1d3/` was built on 2025-02-28T22:38:39.404Z -->
+		<!-- This page `/blog/recurse-w2d5/` was built on 2025-02-28T22:38:39.405Z -->
 		<script type="module" src="/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>
