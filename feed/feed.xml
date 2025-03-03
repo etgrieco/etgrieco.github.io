@@ -5,11 +5,34 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-02-28T00:00:00Z</updated>
+  <updated>2025-03-03T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W3D1</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w3d1/" />
+    <updated>2025-03-03T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w3d1/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-w3d1&quot;&gt;Recurse - W3D1&lt;/h1&gt;
+&lt;p&gt;Today I iterated on my &lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota&quot;&gt;space invaders game&lt;/a&gt; to learn some new skills working with Three.js&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;l&lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/blob/a2aba95d68f9db8be7fcabd687e7c0666778bf51/src/main.ts#L16-L26&quot;&gt;oad custom assets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;scale those custom assets properly to the game engine&lt;/li&gt;
+&lt;li&gt;Refine 3d collision handling&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/etgrieco/space-invaders-p5-koota/blob/a2aba95d68f9db8be7fcabd687e7c0666778bf51/src/main.ts#L40-L42&quot;&gt;make some basic scene lighting&lt;/a&gt; (for the custom asset)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A lot of this was about getting to grips with more confort with dealing with numbers and entities in 3D space. At this point, I&#39;m pretty satisfied with space invaders as a learning exercise, both for orchestrating a game engine/logic in general, and also for learning some basics of 3D programming.&lt;/p&gt;
+&lt;p&gt;A snapshot of the product can be &lt;a href=&quot;https://websiteaboutmy.website/blog-assets/recurse-w3d1/space-invaders-demo/index.html&quot;&gt;played here&lt;/a&gt; (arrows, move; &amp;quot;v&amp;quot; to shoot)&lt;/p&gt;
+&lt;p id=&quot;space-invaders-demo-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+  Space invaders demo at end of day W31D1
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;space-invaders-demo-video-desc&quot;&gt;
+    &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w3d1/space-invaders-demo-w3d1.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W2D5</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w2d5/" />
