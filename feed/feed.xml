@@ -5,11 +5,35 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-03-03T00:00:00Z</updated>
+  <updated>2025-03-10T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W4D1</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w4d1/" />
+    <updated>2025-03-10T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w4d1/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-w4d1&quot;&gt;Recurse - W4D1&lt;/h1&gt;
+&lt;p&gt;Haven&#39;t checked in most of last week.&lt;/p&gt;
+&lt;p&gt;The theme of a game jam started within Recurse is &amp;quot;Lost Signals&amp;quot; -- building on some work from &amp;quot;impossible day&amp;quot;, I am going to focus on getting a good framework setup for multiplayer connectivity. I want it to be robust as the game reloads (due to HMR development), in addition to having resiliency when a websocket connection breaks.&lt;/p&gt;
+&lt;p&gt;Here&#39;s a snapshot of &lt;a href=&quot;https://github.com/etgrieco/game-ws-multiplayer-experiment/tree/0971080d106bba81a002d1d4c56d1bd66ba6656c&quot;&gt;where I&#39;m currently at with the project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is a quick demo of what works, as-is:&lt;/p&gt;
+&lt;p id=&quot;multiplayer-game-demo-w4d1-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+  Space invaders demo at end of day W31D1
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;multiplayer-game-demo-w4d1-video-desc&quot;&gt;
+    &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w4d1/w4d1-demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+&lt;p&gt;Unfortunately, this one is not online yet, as it requires a websocket server up to work!&lt;/p&gt;
+&lt;p&gt;Here are some cool &#39;lost signals connections&#39; that do work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;when a client disconnects or refreshes, it can reconnect to the active session&lt;/li&gt;
+&lt;li&gt;when the server closes, it dumps a JSON snapshot of the currently running games so they can be restore and resumed&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W3D1</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w3d1/" />

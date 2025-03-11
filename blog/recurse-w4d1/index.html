@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Recurse: W2D4</title>
+		<title>Recurse: W4D1</title>
 		<meta name="description" content="A porflolio and blog about Elliott Grieco">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Elliott Grieco">
 		
@@ -473,50 +473,32 @@ header {
 		<main id="skip">
 			<heading-anchors>
 				
-<h1 id="recurse-w2d4">Recurse: W2D4</h1>
+<h1 id="recurse-w4d1">Recurse: W4D1</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-02-27">27 February 2025</time></li>
+	<li><time datetime="2025-03-10">10 March 2025</time></li>
 	<li><a href="/tags/recurse/" class="post-tag">recurse</a></li>
 </ul>
 
-<h1 id="recurse-center-w2d4">Recurse center: W2D4</h1>
-<p>After getting into the basics of <a href="https://en.wikipedia.org/wiki/Entity_component_system">ECS</a> and <a href="https://github.com/pmndrs/koota">koota</a></p>
-<p>Most of my coding time was dedicated towards doing some maintenance and general code pattern making around organizing the parts.</p>
-<p>Turns out the simplest way to go about it is to segregate Entity-Component-System by entity, component (&quot;trait&quot;s), and system definitions.</p>
-<p>All changes made for the koota migration are captured <a href="https://github.com/etgrieco/space-invaders-p5-koota/pull/1">in this pull request</a>.</p>
-<p>Ultimately, the &quot;main&quot; method for our game simulation is now organized as follows</p>
-<ol>
-<li>When the game simulation is started, <a href="https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation.ts#L87-L147">do some one-off resource creation</a>. This includes setting up listening for the controller inputs, setting up basic level entities, and setting up the initial state</li>
-<li>Set up a method for every tick. Every tick, <a href="https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation.ts#L170-L212">run through each of the systems</a> to perform updates on the underlying components per-entity. Concepts that are beginning to merge are &quot;game logic systems&quot; and &quot;draw&quot; systems. The game logic systems depends upon the game state only, and is about making changes to that game state. The &quot;draw&quot; systems then take this processed game state, and determines what to draw on the screen based on this info.</li>
-</ol>
-<p>While improving basic code organization, some logic was improved as well -- I learned about <a href="https://en.wikipedia.org/wiki/Minimum_bounding_rectangle">axis-aligned bounding boxes</a>, and this was a rather quick way to get collision detection working. I'm happy overall that the bounding box and drawing logic are completely independent of one-another, which feels much better than where I was with working on binary sort a week ago.</p>
-<h2 id="some-things-i-m-unhappy-about">Some things I'm unhappy about</h2>
-<p>Thinking through what I should do with &quot;systems&quot; <a href="https://github.com/etgrieco/space-invaders-p5-koota/blob/25097131c24478922eb1637e865c0bb77af8e12d/src/scenes/gameSimulation/adhocSystems.ts#L17">like this</a>. Here, I am simply calling it an 'adhoc' system, and having it operate on a single entity. As designed, functions that receive an entity alone are kind of weird, and probably an anti-pattern. There are 'hidden' parts of the contract as-is that say &quot;oh, by the way this better be a <code>Position</code> and <code>Velocity</code>-based entity, or this won't work. These are all code-smells to me.</p>
-<p>Perhaps the solution is -- turn everything into a system, even if it feels like a one-off. Think if there's some kind of extractable behavior. For example, perhaps there is something like a 'route' that this entity should follow, and there's a systemic relationship between 'routes', 'positions', and velocities? Perhaps it is really that simple. I'll give it a shot tomorrow.</p>
-<p>On the one hand, in these ambiguous one-off cases, I'm happy to leave it alone. Gives me time to find the right abstraction.</p>
-<p>The nice thing here, at least, is that the wrong abstraction does not appear to be as 'expensive' as when the same wrong abstraction is selected for in OOP.</p>
-<h2 id="some-things-to-work-on-tomorrow">Some things to work on tomorrow</h2>
+<h1 id="recurse-w4d1-2">Recurse - W4D1</h1>
+<p>Haven't checked in most of last week.</p>
+<p>The theme of a game jam started within Recurse is &quot;Lost Signals&quot; -- building on some work from &quot;impossible day&quot;, I am going to focus on getting a good framework setup for multiplayer connectivity. I want it to be robust as the game reloads (due to HMR development), in addition to having resiliency when a websocket connection breaks.</p>
+<p>Here's a snapshot of <a href="https://github.com/etgrieco/game-ws-multiplayer-experiment/tree/0971080d106bba81a002d1d4c56d1bd66ba6656c">where I'm currently at with the project</a></p>
+<p>Here is a quick demo of what works, as-is:</p>
+<p id="multiplayer-game-demo-w4d1-video-desc" class="visually-hidden">
+  Space invaders demo at end of day W31D1
+</p>
+<video controls="" width="640" height="360" aria-describedby="multiplayer-game-demo-w4d1-video-desc">
+    <source src="/blog-assets/recurse-w4d1/w4d1-demo.mp4" type="video/mp4">
+</video>
+<p>Unfortunately, this one is not online yet, as it requires a websocket server up to work!</p>
+<p>Here are some cool 'lost signals connections' that do work:</p>
 <ul>
-<li>Look into turning swarm behavior into a system</li>
-<li>Fix controls by using an input queue and handle inputs per-tick</li>
-<li>Add some interesting effects, especially lighting
-<ul>
-<li>since the game logic is completely de-coupled from the view, consider experimenting with other drawing strategies?</li>
+<li>when a client disconnects or refreshes, it can reconnect to the active session</li>
+<li>when the server closes, it dumps a JSON snapshot of the currently running games so they can be restore and resumed</li>
 </ul>
-</li>
-<li>update koota to 0.2.0. I <a href="https://github.com/pmndrs/koota/issues/54">posted an issue</a> today, which got fixed by this release.</li>
-<li>Perhaps create a github action for building and publishing assets per-merge to main, for long-term tracking of progress</li>
-</ul>
-<h2 id="some-things-on-the-horizon">Some things on the horizon</h2>
-<ul>
-<li>Recurse's &quot;impossible&quot; day. Is that when some kind of client-server interaction should be handled</li>
-<li>A game jam -- a game jame is being scheduled for sometime next week, it seems. that would take me off my current project for a bit, but game jams are fun.</li>
-</ul>
-<p>Here is the current code <a href="https://github.com/etgrieco/space-invaders-p5-koota/commit/930805e2ba6031396e5df1f2e6c66d4ea3b6ebf5">snapshot</a> of my implementation for the day</p>
-<p><a href="/blog-assets/recurse-w2d4/space-invaders-demo/index.html">Here are the built assets that can be played with on the website.</a></p>
 
-<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w2d3/">Recurse: W2D3</a></li><li class="links-nextprev-next">Next →<br><a href="/blog/recurse-w2d5/">Recurse: W2D5</a></li>
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/recurse-w3d1/">Recurse: W3D1</a></li>
 </ul>
 
 			</heading-anchors>
@@ -526,7 +508,7 @@ header {
 			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
 		</footer>
 
-		<!-- This page `/blog/recurse-w2d4/` was built on 2025-03-11T01:18:48.523Z -->
+		<!-- This page `/blog/recurse-w4d1/` was built on 2025-03-11T01:18:48.524Z -->
 		<script type="module" src="/dist/xbxy_EL6cU.js"></script>
 	</body>
 </html>
