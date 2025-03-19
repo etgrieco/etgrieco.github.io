@@ -15,7 +15,7 @@ Here's a snapshot of [where I'm currently at with the project](https://github.co
 Here is a quick demo of what works, as-is:
 
 <p id="multiplayer-game-demo-w4d1-video-desc" class="visually-hidden">
-  Space invaders demo at end of day W31D1
+  Demo of multiplayer game project, W4D1
 </p>
 <video controls width="640" height="360" aria-describedby="multiplayer-game-demo-w4d1-video-desc">
     <source src="/blog-assets/recurse-w4d1/w4d1-demo.mp4" type="video/mp4">
