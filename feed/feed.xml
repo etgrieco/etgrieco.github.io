@@ -5,11 +5,68 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-03-10T00:00:00Z</updated>
+  <updated>2025-03-18T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W5D2</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w5d2/" />
+    <updated>2025-03-18T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w5d2/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-w5d2&quot;&gt;Recurse - W5D2&lt;/h1&gt;
+&lt;p&gt;Another check-in about today, and hopefully some catch up since &lt;a href=&quot;https://websiteaboutmy.website/blog/recurse-w5d2/recurse-w4d1&quot;&gt;the last one&lt;/a&gt; as well!&lt;/p&gt;
+&lt;p&gt;My goal last week was to get the multiplayer project to be robust and recoverable across &#39;lost signals&#39;. It&#39;s not 100% , but it definitely recovers and handles HMR elegantly across many cases, including client and server restarts.&lt;/p&gt;
+&lt;p&gt;Here&#39;s a demo:&lt;/p&gt;
+&lt;p id=&quot;multiplayer-game-demo-w5d2-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+  Demo of multiplayer game project, W5D2
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;multiplayer-game-demo-w5d2-video-desc&quot;&gt;
+    &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w5d2/w5d2-demo-lost-signals-demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+&lt;p&gt;Here&#39;s a snapshot of &lt;a href=&quot;https://github.com/etgrieco/game-ws-multiplayer-experiment/tree/0e3bbd75f50e7454cd0158a945c6da6b3a86c147&quot;&gt;where I&#39;m currently at with the project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here are some new things I learned today while adding features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Controls, with &lt;a href=&quot;https://github.com/pmndrs/leva/&quot;&gt;leva&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;An orbital control camera, and other niceties, with &lt;a href=&quot;https://github.com/pmndrs/drei&quot;&gt;drei&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLtzt35QOXmkKkZL63E3IXDxqvP13MHyTE&quot;&gt;Followed along with this playlist&lt;/a&gt; as inspiration for setting up cameras, flat terrain plains, etc. It&#39;s written in non-React Three.JS, plus taking on the additional challenge of having things work in a multiplayer (server/client) setup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also went through with a refactor to potentially allow for &amp;gt;2 players, in case a gameplay idea comes out of that. It also gives me some more flexibility in how I handle sending updates from the server; for example, I may only update some players, not all, per-update message send.&lt;/p&gt;
+&lt;h2 id=&quot;looking-back&quot;&gt;Looking back --&lt;/h2&gt;
+&lt;p&gt;Since last week, the major improvements were primarily around the organization of the web socket state machine, both on web and server. It&#39;s still a quite &#39;loose&#39; state machine at this point, and potentially prone to unexpected behaviors. I wanted some flexibility still at this point, but basically I organized my states as follows:&lt;/p&gt;
+&lt;p&gt;The state of the game, according to the client:&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GameMachineState&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;INIT&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SESSION_CONNECTED_WITH_GAME_PLAYING&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SESSION_CONNECTED_WITH_GAME_READY&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SESSION_CONNECTED_WITH_GAME_WAITING_PLAYER&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;quot;Transitions&amp;quot;/events that can be triggered by the server, and cause changes between these states&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MultiplayerGameStatus&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PAUSED_AWAITING_START&quot;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PAUSED_AWAITING_PLAYERS&quot;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PLAYING&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;which come packaged in updates like:&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;GAME_STATUS_UPDATE&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  data&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    sessionId&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    gameStatus&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MultiplayerGameStatus&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I should perhaps think on if there&#39;s a mistake here -- is it worth it to unify the state definitions between client and server? That may make things a bit simpler to follow as the application grows.&lt;/p&gt;
+&lt;p&gt;But that would require another refactor, and may push forward on adding gameplay features instead, and return back to this part as a cleanup later.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W4D1</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w4d1/" />
@@ -21,7 +78,7 @@
 &lt;p&gt;Here&#39;s a snapshot of &lt;a href=&quot;https://github.com/etgrieco/game-ws-multiplayer-experiment/tree/0971080d106bba81a002d1d4c56d1bd66ba6656c&quot;&gt;where I&#39;m currently at with the project&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Here is a quick demo of what works, as-is:&lt;/p&gt;
 &lt;p id=&quot;multiplayer-game-demo-w4d1-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
-  Space invaders demo at end of day W31D1
+  Demo of multiplayer game project, W4D1
 &lt;/p&gt;
 &lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;multiplayer-game-demo-w4d1-video-desc&quot;&gt;
     &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w4d1/w4d1-demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
