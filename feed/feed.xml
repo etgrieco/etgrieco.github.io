@@ -5,11 +5,35 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://websiteaboutmy.website/feed/feed.xml" rel="self" />
   <link href="https://websiteaboutmy.website/" />
-  <updated>2025-03-18T00:00:00Z</updated>
+  <updated>2025-03-21T00:00:00Z</updated>
   <id>https://websiteaboutmy.website/</id>
   <author>
     <name>Your Name</name>
   </author>
+  <entry>
+    <title>Recurse: W5D5</title>
+    <link href="https://websiteaboutmy.website/blog/recurse-w5d5/" />
+    <updated>2025-03-21T00:00:00Z</updated>
+    <id>https://websiteaboutmy.website/blog/recurse-w5d5/</id>
+    <content type="html">&lt;h1 id=&quot;recurse-w5d5-update&quot;&gt;Recurse W5D5 update&lt;/h1&gt;
+&lt;p&gt;Other than mostly fighting a bad cold the past week, made some progress on adding some features to my game&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adds some terrain features from the server, for synchronization among all clients&lt;/li&gt;
+&lt;li&gt;Add an isometric camera perspective&lt;/li&gt;
+&lt;li&gt;Add more natural movement (in the isometric perspective)&lt;/li&gt;
+&lt;li&gt;Camera following the player&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here&#39;s a demo&lt;/p&gt;
+&lt;p id=&quot;w5d5-demo-video-desc&quot; class=&quot;visually-hidden&quot;&gt;
+    W5D5 multiplayer game demo
+&lt;/p&gt;
+&lt;video controls=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; aria-describedby=&quot;w5d5-demo-video-desc&quot;&gt;
+    &lt;source src=&quot;https://websiteaboutmy.website/blog-assets/recurse-w5d5/w5d5-demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+&lt;p&gt;And here&#39;s &lt;a href=&quot;https://github.com/etgrieco/game-ws-multiplayer-experiment/tree/648a510dad76629d44018ece412c9b1fb1cbb781&quot;&gt;the snapshot&lt;/a&gt; of where I&#39;m at.&lt;/p&gt;
+&lt;p&gt;Challenges during this part were getting the isometric orientation and orthographic camera right. Using the &lt;a href=&quot;https://github.com/pmndrs/leva&quot;&gt;leva library&lt;/a&gt; helped a lot for making quick changes and getting some intuition around moving around the 3D space.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Recurse: W5D2</title>
     <link href="https://websiteaboutmy.website/blog/recurse-w5d2/" />
@@ -469,38 +493,6 @@ TypeScript + hot-reloading setup so that I can quickly iterate on visual tweaks 
 &lt;li&gt;Improve (finish?) the animation to show how binary search works -- &lt;a href=&quot;https://www.cs.usfca.edu/~galles/visualization/Search.html&quot;&gt;something like this page&lt;/a&gt;, but with my own twist&lt;/li&gt;
 &lt;li&gt;Consider if its worth to publish a basic vite + p5.js setup, since I came up with my own &#39;flavor&#39; of getting the beginning working (this &lt;a href=&quot;https://dev.to/tendonnman/how-to-use-p5js-with-typescript-and-webpack-57ae&quot;&gt;blogpost&lt;/a&gt; for webpack got me started, with some adjustments)&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Recurse: W1D2</title>
-    <link href="https://websiteaboutmy.website/blog/recurse-w1d2/" />
-    <updated>2025-02-18T00:00:00Z</updated>
-    <id>https://websiteaboutmy.website/blog/recurse-w1d2/</id>
-    <content type="html">&lt;h1 id=&quot;recurse-center-w1d2&quot;&gt;Recurse center: W1D2&lt;/h1&gt;
-&lt;p&gt;Here are some things we did today during my first on-site day at the Recurse hub!&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Learn by commute from UWS down to the Recurse Hub in downtown Brooklyn&lt;/li&gt;
-&lt;li&gt;Got a tour of the facilities&lt;/li&gt;
-&lt;li&gt;Socialized and met other folks in the batch over 🥯 ☕️&lt;/li&gt;
-&lt;li&gt;Did a code pairing workshop -- wrote a Conway&#39;s game of life implementation as a pair via React/NextJS with &lt;a href=&quot;https://github.com/freeman-jiang&quot;&gt;freeman-jiang&lt;/a&gt; (&lt;a href=&quot;https://github.com/etgrieco/recurse-cgol&quot;&gt;source code&lt;/a&gt; and &lt;a href=&quot;https://conway.freemanjiang.com/&quot;&gt;deployed web app&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;Was &lt;em&gt;incredibly&lt;/em&gt; intrigued by a novel implementation using &lt;a href=&quot;https://typst.app/&quot;&gt;typst&lt;/a&gt; with PDF outputs as &#39;steps&#39; in the game of life&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Built this blog with this basic static site generation tool &lt;a href=&quot;https://github.com/11ty/eleventy/&quot;&gt;11ty&lt;/a&gt; -- thanks &lt;a href=&quot;https://palomakop.tv/&quot;&gt;Paloma&lt;/a&gt; for pointing me in the right direction, there!
-&lt;ul&gt;
-&lt;li&gt;Also learned some basics of leveraging GH actions for some build/deploy steps (commit -&amp;gt; update blog will keep this sustainable!)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Started some course browsing for getting started to code tomorrow. Considering:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://frontendmasters.com/courses/algorithms/&quot;&gt;The last algorithms course you&#39;ll need&lt;/a&gt;, &lt;a href=&quot;https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/&quot;&gt;introduction to algorithms&lt;/a&gt;, and &lt;a href=&quot;https://ocw.mit.edu/courses/6-837-computer-graphics-fall-2012/&quot;&gt;computer graphics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;thinking through if there&#39;s a way to start on a prototype game soon enough as a jumping off point to learn and implement these kinds of things&lt;/li&gt;
-&lt;li&gt;if not &#39;the game&#39;, then at least some web things demonstrating some &#39;what I learned&#39; in a fun, interactive way!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Anyway, this day flew by and I had fun putting out at least a bit of code through the pairing experience! ✌️&lt;/p&gt;
 </content>
   </entry>
 </feed>
