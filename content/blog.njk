@@ -18,7 +18,7 @@ const layout =  "layouts/base.njk"
 
 {% set morePosts = postsCount - numberOfLatestPostsToShow %}
 {% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
+<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog-archive.njk">the archive</a>.</p>
 {% endif %}
 
 {# List every content page in the project #}
